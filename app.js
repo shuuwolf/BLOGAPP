@@ -21,6 +21,11 @@
     // Public
     var path = require('path');
     app.use(express.static(path.join(__dirname, 'public')));
+    // Middleware
+        app.use((req, res, next ) => {
+            //code here
+            next();//Dar continuidade as requisições, sem o next ira ficar travado no middleware.
+        })
 //Rotas
     app.get('/', (req, res) => {
         console.log('Pagina inicial');
